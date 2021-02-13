@@ -1,7 +1,7 @@
 library(shiny)
 library(readr)
 library(plotly)
-
+library(dplyr)
 
 filepath <- "data/dummydata.csv"
 
