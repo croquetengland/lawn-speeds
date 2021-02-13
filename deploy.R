@@ -1,0 +1,19 @@
+# Create conditional app name based on branch
+
+app_name <- "lawn-speeds"
+
+# Set account info
+rsconnect::setAccountInfo(
+  name="croquetengland",
+  token=Sys.getenv("SHINYAPPS_TOKEN"),
+  secret=Sys.getenv("SHINYAPPS_SECRET")
+)
+
+# Print name to console
+print(app_name)
+
+# Deploy
+rsconnect::deployApp(appName = app_name,
+                     account = "croquetengland",
+                     appFiles = list.files()[!(list.files() %in% c("renv", "renv.lock"))] 
+)
